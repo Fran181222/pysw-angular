@@ -1,10 +1,9 @@
 <section class="section-card">
   <div class="mb-4">
     <span class="section-kicker">Parte 2</span>
-    <h1 class="h2 mt-3 mb-2">Inscripción a cursos con servicio Angular</h1>
+    <h1 class="h2 mt-3 mb-2">Inscripción a cursos</h1>
     <p class="text-secondary mb-0">
-      El formulario calcula descuentos según la categoría del alumno y registra las operaciones con un
-      servicio que resuelve las altas, ediciones y bajas.
+      Obten descuentos según tu categoría y registra tu inscripción de forma sencilla.
     </p>
   </div>
 
@@ -122,7 +121,7 @@
         <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-3">
           <div>
             <h2 class="h4 mb-1">Listado de inscripciones</h2>
-            <p class="text-secondary mb-0">Tabla filtrable para revisar y editar los registros cargados.</p>
+            <p class="text-secondary mb-0">Busca y filtra las inscripciones registradas.</p>
           </div>
 
           <input
@@ -174,7 +173,7 @@
               </tr>
               <tr *ngIf="!inscripciones.length">
                 <td colspan="6" class="text-center py-4 text-secondary">
-                  No hay inscripciones registradas con el filtro actual.
+                  No hay inscripciones registradas.
                 </td>
               </tr>
             </tbody>
