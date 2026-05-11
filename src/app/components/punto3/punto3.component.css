@@ -1,0 +1,118 @@
+.section-card {
+  padding: 2rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.08);
+}
+
+.section-kicker {
+  color: #0f766e;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.78rem;
+}
+
+.info-card {
+  padding: 1.3rem;
+  border-radius: 1.35rem;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.custom-alert {
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 1.25rem;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.memory-card {
+  min-height: 160px;
+  border: none;
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, #e2e8f0, #f8fafc);
+  box-shadow: 0 15px 28px rgba(15, 23, 42, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 34px rgba(15, 23, 42, 0.14);
+}
+
+.memory-card.is-open {
+  color: #fff;
+}
+
+.memory-icon {
+  font-size: 2.25rem;
+}
+
+.memory-title {
+  font-weight: 700;
+}
+
+.back-image {
+  width: 100%;
+  max-width: 92px;
+}
+
+.tone-a.is-open {
+  background: linear-gradient(135deg, #ea580c, #fb923c);
+}
+
+.tone-b.is-open {
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+}
+
+.tone-c.is-open {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.tone-d.is-open {
+  background: linear-gradient(135deg, #db2777, #f472b6);
+}
+
+.tone-e.is-open {
+  background: linear-gradient(135deg, #0891b2, #22d3ee);
+}
+
+.tone-f.is-open {
+  background: linear-gradient(135deg, #65a30d, #a3e635);
+}
+
+@media (max-width: 991.98px) {
+  .memory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-card {
+    padding: 1.35rem;
+    border-radius: 1.5rem;
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .memory-card {
+    min-height: 140px;
+  }
+}

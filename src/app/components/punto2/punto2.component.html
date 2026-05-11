@@ -1,0 +1,108 @@
+<section class="section-card">
+  <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+    <div>
+      <span class="section-kicker">Punto 2</span>
+      <h1 class="h2 mt-3 mb-2">Productos destacados y carrito</h1>
+      <p class="text-secondary mb-0">
+        Cada card nace de un array predefinido y el botón agrega una unidad al carrito para mostrarla
+        después en un modal de Bootstrap.
+      </p>
+    </div>
+
+    <button
+      class="btn btn-dark rounded-pill px-4 align-self-lg-start"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#carritoModal"
+    >
+      Ver carrito ({{ cartCount }})
+    </button>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-xl-3" *ngFor="let producto of productos">
+      <article class="product-card h-100">
+        <img
+          class="img-fluid rounded-4 mb-3"
+          [src]="producto.img"
+          [alt]="'Imagen del producto ' + producto.nombre"
+        />
+        <span class="badge text-bg-light rounded-pill px-3 py-2 mb-2">{{ producto.categoria }}</span>
+        <h2 class="h4">{{ producto.nombre }}</h2>
+        <p class="text-secondary flex-grow-1">{{ producto.descripcion }}</p>
+        <div class="d-flex justify-content-between align-items-center gap-3 mt-3">
+          <strong class="fs-5">{{ producto.precio | currency: 'USD' : 'symbol' : '1.0-0' }}</strong>
+          <button class="btn btn-outline-dark rounded-pill" type="button" (click)="addToCart(producto)">
+            Agregar al carrito
+          </button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div
+  id="carritoModal"
+  class="modal fade"
+  tabindex="-1"
+  aria-labelledby="carritoModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content rounded-4 border-0 shadow-lg">
+      <div class="modal-header border-0 pb-0">
+        <div>
+          <h2 id="carritoModalLabel" class="modal-title h3 mb-1">Carrito de compras</h2>
+          <p class="text-secondary mb-0">Resumen de productos elegidos y total a abonar.</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body pt-4">
+        <div *ngIf="carrito.length; else emptyCart" class="d-grid gap-3">
+          <div class="cart-row" *ngFor="let item of carrito">
+            <div>
+              <h3 class="h5 mb-1">{{ item.producto.nombre }}</h3>
+              <p class="text-secondary mb-0">Cantidad: {{ item.cantidad }}</p>
+            </div>
+            <div class="text-end">
+              <strong>{{ item.producto.precio * item.cantidad | currency: 'USD' : 'symbol' : '1.0-0' }}</strong>
+              <button
+                class="btn btn-link text-danger p-0 d-block mt-1"
+                type="button"
+                (click)="removeFromCart(item.producto.id)"
+              >
+                Quitar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #emptyCart>
+          <div class="empty-state text-center py-5">
+            <p class="fs-5 mb-2">Todavía no agregaste productos al carrito.</p>
+            <p class="text-secondary mb-0">Elegí uno o más artículos desde la grilla de cards.</p>
+          </div>
+        </ng-template>
+      </div>
+
+      <div class="modal-footer border-0 pt-0">
+        <div class="w-100 d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
+          <div>
+            <span class="text-body-secondary">TOTAL</span>
+            <p class="fs-3 fw-bold mb-0">{{ cartTotal | currency: 'USD' : 'symbol' : '1.0-0' }}</p>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary rounded-pill px-4" type="button" (click)="clearCart()">
+              Vaciar
+            </button>
+            <button class="btn btn-dark rounded-pill px-4" type="button" data-bs-dismiss="modal">
+              Seguir comprando
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

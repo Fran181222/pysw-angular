@@ -1,0 +1,14 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#EFF6FF"/>
+  <rect x="150" y="130" width="900" height="540" rx="44" fill="#1D4ED8"/>
+  <rect x="230" y="210" width="270" height="320" rx="28" fill="#DBEAFE"/>
+  <rect x="540" y="210" width="430" height="56" rx="18" fill="#93C5FD"/>
+  <rect x="540" y="304" width="350" height="40" rx="14" fill="#BFDBFE"/>
+  <rect x="540" y="374" width="278" height="40" rx="14" fill="#BFDBFE"/>
+  <rect x="540" y="444" width="370" height="40" rx="14" fill="#BFDBFE"/>
+  <rect x="540" y="514" width="240" height="40" rx="14" fill="#BFDBFE"/>
+  <circle cx="364" cy="296" r="74" fill="#1D4ED8"/>
+  <path d="M331 404H396V470H331V404Z" fill="#1D4ED8"/>
+  <text x="138" y="102" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="54" font-weight="700">Laboratorio Creativo</text>
+  <text x="140" y="738" fill="#0F172A" font-family="Arial, sans-serif" font-size="34">Prototipos, ideas y colaboración</text>
+</svg>

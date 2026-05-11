@@ -1,0 +1,214 @@
+<section class="section-card">
+  <div class="mb-4">
+    <span class="section-kicker">Parte 2</span>
+    <h1 class="h2 mt-3 mb-2">Inscripción a cursos con servicio Angular</h1>
+    <p class="text-secondary mb-0">
+      El formulario calcula descuentos según la categoría del alumno y registra las operaciones con un
+      servicio que resuelve las altas, ediciones y bajas.
+    </p>
+  </div>
+
+  <form #inscripcionForm="ngForm" novalidate (ngSubmit)="registrar(inscripcionForm)">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label" for="dni">DNI</label>
+        <input
+          id="dni"
+          class="form-control"
+          type="text"
+          name="dni"
+          [(ngModel)]="formulario.dni"
+          required
+          minlength="7"
+          maxlength="10"
+          placeholder="Ej. 41222333"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="curso">Curso</label>
+        <input
+          id="curso"
+          class="form-control"
+          type="text"
+          name="curso"
+          [(ngModel)]="formulario.curso"
+          required
+          placeholder="Angular desde cero"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label" for="precio">Precio del curso</label>
+        <input
+          id="precio"
+          class="form-control"
+          type="number"
+          min="1"
+          step="0.01"
+          name="precio"
+          [(ngModel)]="formulario.precio"
+          (ngModelChange)="onPricingChange()"
+          required
+          placeholder="0.00"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label" for="categoriaAlumno">Categoría del alumno</label>
+        <select
+          id="categoriaAlumno"
+          class="form-select"
+          name="categoriaAlumno"
+          [(ngModel)]="formulario.categoriaAlumno"
+          (change)="onPricingChange()"
+          required
+        >
+          <option [ngValue]="null">Seleccionar categoría</option>
+          <option *ngFor="let categoria of categorias" [ngValue]="categoria.value">
+            {{ categoria.label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label" for="fechaInscripcion">Fecha de inscripción</label>
+        <input
+          id="fechaInscripcion"
+          class="form-control"
+          type="date"
+          name="fechaInscripcion"
+          [(ngModel)]="formulario.fechaInscripcion"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="email">Email</label>
+        <input
+          id="email"
+          class="form-control"
+          type="email"
+          name="email"
+          [(ngModel)]="formulario.email"
+          required
+          placeholder="alumno@correo.com"
+        />
+      </div>
+
+      <div class="col-md-6 d-flex align-items-end">
+        <div class="summary-box w-100" *ngIf="puedeMostrarTotal">
+          <p class="mb-1">Descuento aplicado: {{ descuentoActual }}%</p>
+          <strong>Precio final: {{ totalCalculado | currency: 'USD' : 'symbol' : '1.2-2' }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mt-4">
+      <button class="btn btn-dark rounded-pill px-4" type="submit">
+        {{ editandoId === null ? 'REGISTRAR' : 'GUARDAR CAMBIOS' }}
+      </button>
+      <button class="btn btn-outline-secondary rounded-pill px-4" type="button" (click)="cancelar(inscripcionForm)">
+        Limpiar
+      </button>
+    </div>
+  </form>
+</section>
+
+<section class="mt-4">
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <div class="table-card h-100">
+        <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-3">
+          <div>
+            <h2 class="h4 mb-1">Listado de inscripciones</h2>
+            <p class="text-secondary mb-0">Tabla filtrable para revisar y editar los registros cargados.</p>
+          </div>
+
+          <input
+            class="form-control search-input"
+            type="search"
+            [(ngModel)]="filtro"
+            name="filtro"
+            placeholder="Buscar por DNI, email, curso o categoría"
+          />
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead>
+              <tr>
+                <th>DNI</th>
+                <th>Curso</th>
+                <th>Categoría</th>
+                <th>Fecha</th>
+                <th>Precio final</th>
+                <th class="text-end">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of inscripciones">
+                <td>{{ item.dni }}</td>
+                <td>{{ item.curso }}</td>
+                <td>{{ getCategoryLabel(item.categoriaAlumno) }}</td>
+                <td>{{ item.fechaInscripcion | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ item.total | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
+                <td class="text-end">
+                  <div class="d-inline-flex gap-2">
+                    <button
+                      class="btn btn-sm btn-outline-dark rounded-pill"
+                      type="button"
+                      (click)="editar(item, inscripcionForm)"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      class="btn btn-sm btn-outline-danger rounded-pill"
+                      type="button"
+                      (click)="eliminar(item.id, inscripcionForm)"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngIf="!inscripciones.length">
+                <td colspan="6" class="text-center py-4 text-secondary">
+                  No hay inscripciones registradas con el filtro actual.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="table-card h-100">
+        <h2 class="h4 mb-3">Resumen general</h2>
+        <div class="d-grid gap-3">
+          <div class="summary-item">
+            <span>Estudiantes</span>
+            <strong>{{ resumen.estudiante }}</strong>
+          </div>
+          <div class="summary-item">
+            <span>Egresados</span>
+            <strong>{{ resumen.egresado }}</strong>
+          </div>
+          <div class="summary-item">
+            <span>Particulares</span>
+            <strong>{{ resumen.particular }}</strong>
+          </div>
+          <div class="summary-item">
+            <span>Total de inscripciones</span>
+            <strong>{{ resumen.cantidadTotal }}</strong>
+          </div>
+          <div class="summary-item summary-total">
+            <span>Total general</span>
+            <strong>{{ resumen.totalGeneral | currency: 'USD' : 'symbol' : '1.2-2' }}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+
+:root {
+  color-scheme: light;
+  --app-bg:
+    radial-gradient(circle at top left, rgba(45, 212, 191, 0.2), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(251, 191, 36, 0.16), transparent 24%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  --text-main: #0f172a;
+  --text-soft: #475569;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-main);
+  background: var(--app-bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.form-control,
+.form-select {
+  min-height: 3rem;
+  border-radius: 1rem;
+  border-color: rgba(148, 163, 184, 0.45);
+  box-shadow: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 0.25rem rgba(20, 184, 166, 0.15);
+}
+
+.btn {
+  font-weight: 700;
+}
+
+.table > :not(caption) > * > * {
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}

@@ -1,0 +1,8 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" rx="40" fill="#FFF7ED"/>
+  <path d="M280 308C280 197.543 369.543 108 480 108C590.457 108 680 197.543 680 308V364H610V308C610 236.203 551.797 178 480 178C408.203 178 350 236.203 350 308V364H280V308Z" fill="#FB923C"/>
+  <rect x="232" y="332" width="126" height="214" rx="44" fill="#EA580C"/>
+  <rect x="602" y="332" width="126" height="214" rx="44" fill="#EA580C"/>
+  <rect x="382" y="544" width="196" height="34" rx="17" fill="#FDBA74"/>
+  <text x="220" y="650" fill="#9A3412" font-family="Arial, sans-serif" font-size="52" font-weight="700">Studio Pro</text>
+</svg>

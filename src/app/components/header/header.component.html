@@ -1,0 +1,42 @@
+<header class="header-wrap">
+  <nav class="navbar navbar-expand-lg py-3">
+    <div class="container">
+      <a class="navbar-brand brand-mark" routerLink="/">
+        <span class="brand-badge">UNJu</span>
+        <span>
+          <strong>{{ title }}</strong>
+          <small class="d-block text-body-secondary">Routing, componentes, servicios y Bootstrap</small>
+        </span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Abrir navegación"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNav" class="collapse navbar-collapse justify-content-lg-end">
+        <div class="navbar-nav nav-pills gap-lg-2">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Inicio
+          </a>
+          <a class="nav-link" routerLink="/punto1" routerLinkActive="active">Punto 1</a>
+          <a class="nav-link" routerLink="/punto2" routerLinkActive="active">Punto 2</a>
+          <a class="nav-link" routerLink="/punto3" routerLinkActive="active">Punto 3</a>
+          <a class="nav-link" routerLink="/inscripciones" routerLinkActive="active">Servicios</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

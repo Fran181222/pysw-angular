@@ -1,0 +1,9 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#FAF5FF"/>
+  <rect x="150" y="140" width="900" height="520" rx="44" fill="#7C3AED"/>
+  <path d="M472 248C472 221.49 493.49 200 520 200H740V470C740 507.555 709.555 538 672 538C634.445 538 604 507.555 604 470C604 432.445 634.445 402 672 402C688.653 402 703.911 408.112 715.6 418.2V276H548V542C548 579.555 517.555 610 480 610C442.445 610 412 579.555 412 542C412 504.445 442.445 474 480 474C496.653 474 511.911 480.112 523.6 490.2V248H472Z" fill="#E9D5FF"/>
+  <circle cx="240" cy="235" r="34" fill="#C4B5FD"/>
+  <circle cx="964" cy="566" r="50" fill="#DDD6FE"/>
+  <text x="152" y="104" fill="#581C87" font-family="Arial, sans-serif" font-size="54" font-weight="700">Muestra de Música</text>
+  <text x="140" y="736" fill="#0F172A" font-family="Arial, sans-serif" font-size="34">Escenario, ritmo y encuentro cultural</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#E6FFFA"/>
+  <circle cx="951" cy="170" r="115" fill="#99F6E4"/>
+  <circle cx="212" cy="659" r="148" fill="#CCFBF1"/>
+  <rect x="170" y="150" width="860" height="500" rx="40" fill="#0F766E"/>
+  <circle cx="605" cy="280" r="62" fill="#F8FAFC"/>
+  <path d="M500 530C500 458.203 558.203 400 630 400H640C711.797 400 770 458.203 770 530V544H500V530Z" fill="#F8FAFC"/>
+  <rect x="250" y="596" width="700" height="18" rx="9" fill="#5EEAD4"/>
+  <text x="140" y="104" fill="#134E4A" font-family="Arial, sans-serif" font-size="54" font-weight="700">Taller de Yoga</text>
+  <text x="140" y="742" fill="#0F172A" font-family="Arial, sans-serif" font-size="34">Movimiento consciente y bienestar</text>
+</svg>

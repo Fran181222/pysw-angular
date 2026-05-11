@@ -1,16 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
 import { App } from './app';
+import { AppModule } from './app-module';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterModule.forRoot([])
-      ],
-      declarations: [
-        App
-      ],
+      imports: [AppModule],
     }).compileComponents();
   });
 
@@ -20,10 +15,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the application brand', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
+    fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, pysw-proyecto-angular');
+    expect(compiled.textContent).toContain('Practica Angular 2026');
   });
 });

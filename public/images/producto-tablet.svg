@@ -1,0 +1,9 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" rx="40" fill="#F0FDFA"/>
+  <rect x="238" y="84" width="484" height="552" rx="38" fill="#134E4A"/>
+  <rect x="268" y="120" width="424" height="478" rx="24" fill="#5EEAD4"/>
+  <circle cx="480" cy="617" r="12" fill="#CCFBF1"/>
+  <path d="M356 244C356 214.177 380.177 190 410 190H550C579.823 190 604 214.177 604 244V254H356V244Z" fill="#CCFBF1"/>
+  <rect x="334" y="314" width="292" height="150" rx="20" fill="#99F6E4"/>
+  <text x="364" y="408" fill="#115E59" font-family="Arial, sans-serif" font-size="58" font-weight="700">Nova Air</text>
+</svg>

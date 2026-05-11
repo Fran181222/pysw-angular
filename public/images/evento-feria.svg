@@ -1,0 +1,13 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="48" fill="#FFF7ED"/>
+  <rect x="120" y="160" width="960" height="500" rx="44" fill="#EA580C"/>
+  <path d="M170 250H1030V310H170V250Z" fill="#FED7AA"/>
+  <path d="M170 358H1030V418H170V358Z" fill="#FDBA74"/>
+  <path d="M170 466H1030V526H170V466Z" fill="#FED7AA"/>
+  <path d="M170 574H1030V634H170V574Z" fill="#FDBA74"/>
+  <circle cx="312" cy="410" r="82" fill="#FFF7ED"/>
+  <circle cx="600" cy="410" r="82" fill="#FFF7ED"/>
+  <circle cx="888" cy="410" r="82" fill="#FFF7ED"/>
+  <text x="122" y="112" fill="#9A3412" font-family="Arial, sans-serif" font-size="54" font-weight="700">Feria de Emprendedores</text>
+  <text x="142" y="736" fill="#0F172A" font-family="Arial, sans-serif" font-size="34">Proyectos, stands y comunidad</text>
+</svg>

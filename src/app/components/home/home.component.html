@@ -1,0 +1,53 @@
+<section class="hero-panel shadow-sm">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-7">
+      <span class="eyebrow">Practica Angular 2026</span>
+      <h1 class="display-5 fw-bold mt-3 mb-3">Una sola app para resolver todos los puntos del PDF.</h1>
+      <p class="lead text-secondary mb-4">
+        El proyecto quedó organizado con routing, componentes reutilizables, bindings, formularios,
+        `ngFor`, `ngIf`, pipes y un servicio para gestionar las inscripciones.
+      </p>
+
+      <div class="d-flex flex-wrap gap-3">
+        <a class="btn btn-dark btn-lg rounded-pill px-4" routerLink="/punto1">Empezar por Parte 1</a>
+        <a class="btn btn-outline-dark btn-lg rounded-pill px-4" routerLink="/inscripciones">Ir a Servicios</a>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="stat-card">
+        <p class="text-uppercase text-body-secondary small mb-2">Incluye</p>
+        <div class="d-grid gap-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Componentes y rutas</span>
+            <strong>4 vistas</strong>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Interacciones Bootstrap</span>
+            <strong>Slide + Modal</strong>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Lógica de estado</span>
+            <strong>Juego + Carrito</strong>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>Servicios Angular</span>
+            <strong>CRUD</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="row g-4">
+    <div class="col-md-6 col-xl-3" *ngFor="let seccion of secciones">
+      <article class="feature-card h-100">
+        <h2 class="h4 mb-3">{{ seccion.titulo }}</h2>
+        <p class="text-secondary">{{ seccion.descripcion }}</p>
+        <a class="btn btn-outline-dark rounded-pill mt-auto" [routerLink]="seccion.ruta">Abrir sección</a>
+      </article>
+    </div>
+  </div>
+</section>

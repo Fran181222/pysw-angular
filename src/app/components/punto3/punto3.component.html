@@ -1,0 +1,66 @@
+<section class="section-card">
+  <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+    <div>
+      <span class="section-kicker">Punto 3</span>
+      <h1 class="h2 mt-3 mb-2">Juego de memoria</h1>
+      <p class="text-secondary mb-0">
+        El tablero tiene 12 cartas, 6 parejas aleatorias y una lógica de intentos controlada por el botón
+        <strong>INTENTAR</strong>.
+      </p>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2">
+      <button class="btn btn-dark rounded-pill px-4" type="button" (click)="startGame()">INICIAR</button>
+      <button class="btn btn-outline-dark rounded-pill px-4" type="button" (click)="beginAttempt()">
+        INTENTAR
+      </button>
+      <button class="btn btn-outline-secondary rounded-pill px-4" type="button" (click)="resetGame()">
+        REINICIAR
+      </button>
+    </div>
+  </div>
+
+  <div class="row g-4 align-items-start mb-4">
+    <div class="col-lg-4">
+      <div class="info-card">
+        <p class="text-body-secondary mb-2">Intentos restantes</p>
+        <strong class="display-5 d-block">{{ intentosRestantes }}</strong>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="info-card">
+        <p class="text-body-secondary mb-2">Parejas encontradas</p>
+        <strong class="display-5 d-block">{{ paresEncontrados }}/6</strong>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="info-card">
+        <p class="text-body-secondary mb-2">Movimiento habilitado</p>
+        <strong class="display-5 d-block">{{ cartasPorVoltear }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert custom-alert mb-4" [class.alert-success]="juegoTerminado && paresEncontrados === 6">
+    {{ mensaje }}
+  </div>
+
+  <div class="memory-grid">
+    <button
+      *ngFor="let carta of tablero"
+      class="memory-card"
+      type="button"
+      [ngClass]="[carta.tono, carta.descubierta || carta.emparejada ? 'is-open' : '']"
+      (click)="flipCard(carta)"
+    >
+      <ng-container *ngIf="carta.descubierta || carta.emparejada; else backFace">
+        <span class="memory-icon">{{ carta.icono }}</span>
+        <span class="memory-title">{{ carta.titulo }}</span>
+      </ng-container>
+
+      <ng-template #backFace>
+        <img class="back-image" [src]="cartaTapada" alt="Carta tapada" />
+      </ng-template>
+    </button>
+  </div>
+</section>
